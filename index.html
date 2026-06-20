@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sipiata Echeri — Medicina de la Tierra | Centro Holístico de Salud Integral</title>
+<meta name="description" content="Sipiata Echeri, centro holístico de salud integral en Zamora de Hidalgo, Michoacán. Temazcal, herbolaria, talleres y encuentros de sanación y crecimiento en comunidad.">
+
+<!--
+  ============================================================
+  EDITA AQUÍ — pendientes:
+  1. Foto del temazcal -> buscar "PH: foto del temazcal"
+  2. Mapa o foto del lugar -> buscar "PH: mapa"
+  3. Fechas reales de próximos encuentros -> sección id="agenda"
+  Ya están integrados: logo (img/logo.jpg), foto de comunidad
+  (img/portada.jpg), WhatsApp +52 351 127 0189 y correo
+  sipiataecheri@gmail.com.
+  Para publicarla, sube la carpeta completa (index.html + la
+  carpeta "img") a tu hosting — no muevas las imágenes solas.
+  ============================================================
+-->
+
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --crema:#F8F3E8;
+    --crema-2:#EFE6D2;
+    --verde-oscuro:#0B5C34;
+    --verde-profundo:#0A3D26;
+    --verde-lima:#8FBB55;
+    --ocre:#A06F16;
+    --marron:#5C3D12;
+    --texto:#3A2C1C;
+    --texto-suave:#6B5A44;
+    --linea:rgba(58,42,22,0.13);
+    --font-display:"Fraunces", serif;
+    --font-body:"Nunito Sans", sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--crema);
+    color:var(--texto);
+    font-family:var(--font-body);
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .eyebrow{
+    font-family:var(--font-body);
+    font-size:0.74rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ocre);
+    font-weight:700;
+  }
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:500;
+    margin:0;
+    color:var(--marron);
+  }
+  p{margin:0;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.6em;
+    font-family:var(--font-body);
+    font-size:0.92rem;
+    font-weight:700;
+    letter-spacing:0.01em;
+    padding:0.95em 1.9em;
+    border-radius:30px;
+    text-decoration:none;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, background .35s, color .35s;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--verde-oscuro),var(--verde-lima));
+    color:#fff;
+    box-shadow:0 10px 28px -10px rgba(11,92,52,0.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 32px -8px rgba(11,92,52,0.65);}
+  .btn-ghost{
+    border:1.5px solid var(--marron);
+    color:var(--marron);
+    background:transparent;
+  }
+  .btn-ghost:hover{background:var(--marron); color:var(--crema);}
+  .btn-ghost.on-dark{border-color:rgba(248,243,232,0.6); color:var(--crema);}
+  .btn-ghost.on-dark:hover{background:var(--crema); color:var(--verde-profundo);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1em 6vw;
+    background:rgba(248,243,232,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--linea);
+  }
+  .brand{
+    display:flex; align-items:center; gap:0.7em;
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    font-style:italic;
+    color:var(--marron);
+  }
+  .brand img{height:40px; width:40px; border-radius:50%; object-fit:cover; box-shadow:0 2px 10px rgba(58,42,22,0.18);}
+  nav ul{
+    list-style:none; display:flex; gap:2.2em; margin:0; padding:0;
+  }
+  nav a{
+    font-size:0.8rem; text-decoration:none; letter-spacing:0.04em;
+    text-transform:uppercase; color:var(--texto-suave); font-weight:600;
+    transition:color .3s;
+  }
+  nav a:hover{color:var(--verde-oscuro);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--marron); font-size:1.6rem; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; align-items:flex-end;
+    overflow:hidden;
+    color:var(--crema);
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background-image:url('img/portada.jpg');
+    background-size:cover;
+    background-position:center 35%;
+    filter:saturate(0.9);
+  }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(to top, rgba(10,30,20,0.92) 0%, rgba(10,30,20,0.55) 45%, rgba(10,30,20,0.25) 75%),
+      linear-gradient(120deg, rgba(11,92,52,0.35), rgba(160,111,22,0.18));
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    width:100%;
+    padding-bottom:5.5em;
+    padding-top:9em;
+  }
+  .hero h1{
+    font-size:clamp(2.5rem, 5.6vw, 4.3rem);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    color:var(--crema);
+    max-width:18ch;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--verde-lima); font-weight:300;
+  }
+  .hero .tag{
+    margin-top:0.9em;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:1.25rem;
+    color:#e8dfc9;
+  }
+  .hero p.lead{
+    margin-top:1.4em;
+    max-width:46ch;
+    font-size:1.04rem;
+    color:#ECE3D0;
+  }
+  .hero .cta-row{
+    margin-top:2.2em;
+    display:flex; gap:1em; flex-wrap:wrap;
+  }
+  .scroll-cue{
+    position:absolute; bottom:1.6em; right:6vw; z-index:2;
+    font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:#cfc3a6;
+  }
+
+  /* ---------- WAVE DIVIDER ---------- */
+  .wave{
+    display:block; width:100%; height:auto;
+    margin-bottom:-1px;
+  }
+
+  /* ---------- LOGO REVEAL ---------- */
+  .reveal{
+    background:var(--crema);
+    text-align:center;
+    padding:5.5em 0 4em;
+  }
+  .reveal img{
+    width:min(56vw, 300px);
+    margin:0 auto;
+  }
+  .reveal p{
+    margin-top:1.6em;
+    color:var(--texto-suave);
+    font-size:0.95rem;
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- SECTION GENERICS ---------- */
+  section{padding:6em 0; position:relative;}
+  .section-head{
+    max-width:640px; margin-bottom:3.2em;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-top:0.5em;
+    line-height:1.15;
+  }
+
+  /* ---------- NOMBRE / ORIGEN ---------- */
+  .origen{background:var(--crema-2);}
+  .origen .grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:5vw; align-items:center;
+  }
+  .leaf-motif{width:100%; max-width:340px;}
+  .origen-copy p{color:var(--texto-suave); margin-bottom:1.3em; font-size:1.02rem;}
+  .origen-copy p:last-child{margin-bottom:0;}
+  .origen-copy strong{color:var(--marron); font-weight:700;}
+
+  /* ---------- TALLERES / SERVICIOS ---------- */
+  .talleres-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1.4em;
+  }
+  .taller{
+    background:var(--crema);
+    border:1px solid var(--linea);
+    border-radius:18px;
+    padding:2.4em 2em;
+    transition:transform .4s, box-shadow .4s, border-color .4s;
+  }
+  .taller:hover{transform:translateY(-4px); box-shadow:0 16px 32px -16px rgba(58,42,22,0.25); border-color:transparent;}
+  .taller .icon{
+    width:40px; height:40px; margin-bottom:1.5em;
+    color:var(--verde-oscuro);
+  }
+  .taller h3{font-size:1.22rem; margin-bottom:0.6em; color:var(--marron);}
+  .taller p{color:var(--texto-suave); font-size:0.96rem;}
+
+  /* ---------- CITA ---------- */
+  .cita{
+    background:linear-gradient(150deg, var(--verde-profundo), var(--verde-oscuro));
+    text-align:center;
+    padding:6.5em 0;
+    position:relative;
+    color:var(--crema);
+  }
+  .cita blockquote{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:clamp(1.4rem,2.8vw,2.1rem);
+    max-width:740px; margin:0 auto;
+    line-height:1.4;
+  }
+  .cita cite{
+    display:block; margin-top:1.6em;
+    font-style:normal; font-size:0.76rem; letter-spacing:0.2em;
+    text-transform:uppercase; color:var(--verde-lima);
+  }
+
+  /* ---------- AGENDA ---------- */
+  .agenda .wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:5vw; align-items:start;}
+  .agenda-aside p{color:var(--texto-suave); max-width:32ch; font-size:1rem;}
+  .agenda-card{
+    border:1px solid var(--linea); border-radius:14px; padding:1.9em 2.1em;
+    background:var(--crema-2);
+  }
+  .agenda-card + .agenda-card{margin-top:0.9em;}
+  .agenda-card .fecha{font-family:var(--font-display); font-style:italic; color:var(--ocre); font-size:1.02rem;}
+  .agenda-card h3{font-size:1.12rem; margin-top:0.3em; color:var(--marron);}
+  .agenda-card p{color:var(--texto-suave); font-size:0.92rem; margin-top:0.5em;}
+
+  /* ---------- COMUNIDAD / FOTO ---------- */
+  .banda-comunidad{
+    position:relative;
+    min-height:54vh;
+    background-image:url('img/portada.jpg');
+    background-size:cover;
+    background-position:center 40%;
+    display:flex; align-items:flex-end;
+  }
+  .banda-comunidad::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(10,30,20,0.85), rgba(10,30,20,0.1) 60%);
+  }
+  .banda-comunidad .cap{
+    position:relative; z-index:2; padding:2.6em 6vw;
+    color:var(--crema);
+  }
+  .banda-comunidad .cap p.eyebrow{color:var(--verde-lima);}
+  .banda-comunidad .cap h3{color:var(--crema); font-size:1.6rem; margin-top:0.4em; max-width:30ch;}
+
+  /* ---------- PLACEHOLDERS ---------- */
+  .ph-img{
+    width:100%; aspect-ratio:4/5;
+    background:
+      repeating-linear-gradient(135deg, rgba(58,42,22,0.04) 0 2px, transparent 2px 18px),
+      linear-gradient(160deg, var(--crema-2), var(--crema));
+    border:1px solid var(--linea);
+    border-radius:16px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:0.6em;
+    color:var(--texto-suave);
+    text-align:center;
+    padding:1em;
+  }
+  .ph-img svg{width:32px; height:32px; opacity:0.55; color:var(--verde-oscuro);}
+  .ph-img small{font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase;}
+
+  /* ---------- CONTACTO ---------- */
+  .contacto{background:var(--crema-2);}
+  .contacto .grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:5vw;}
+  .contacto h2{font-size:clamp(1.9rem,3.4vw,2.5rem); line-height:1.15;}
+  .contacto-lead{color:var(--texto-suave); margin-top:1.2em; max-width:42ch;}
+  .info-list{margin-top:2.4em; display:flex; flex-direction:column; gap:1.2em;}
+  .info-list a, .info-list .static{
+    display:flex; align-items:baseline; gap:0.9em;
+    text-decoration:none; font-size:1rem;
+  }
+  .info-list .label{
+    font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--texto-suave); min-width:7.5em; font-weight:700;
+  }
+  .info-list a span.val{color:var(--marron); border-bottom:1px solid transparent; transition:border-color .3s,color .3s; font-weight:600;}
+  .info-list a:hover span.val{color:var(--verde-oscuro); border-color:var(--verde-oscuro);}
+  .info-list .static span.val{color:var(--marron); font-weight:600;}
+  .ph-map{
+    aspect-ratio:1/1;
+    background:linear-gradient(160deg, var(--crema), var(--crema-2));
+    border:1px solid var(--linea); border-radius:16px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.8em;
+    color:var(--texto-suave); text-align:center; padding:2em;
+  }
+  .ph-map svg{width:28px;height:28px;opacity:0.55; color:var(--verde-oscuro);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:2.6em 0 2.2em;
+    background:var(--verde-profundo);
+    color:#cfd9c9;
+  }
+  footer .wrap{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1em;
+  }
+  footer .fbrand{display:flex; align-items:center; gap:0.7em;}
+  footer .fbrand img{height:34px; width:34px; border-radius:50%; object-fit:cover;}
+  footer p{font-size:0.8rem; color:#a9bba1;}
+  .social-row{display:flex; gap:1.3em;}
+  .social-row a{color:#cfd9c9; transition:color .3s;}
+  .social-row a:hover{color:var(--verde-lima);}
+  .social-row svg{width:18px; height:18px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:880px){
+    nav ul{
+      position:fixed; top:0; right:0; height:100vh; width:72vw; max-width:320px;
+      background:var(--crema); flex-direction:column; justify-content:center;
+      gap:2em; padding:0 2.4em; transform:translateX(100%);
+      transition:transform .4s ease; box-shadow:-20px 0 40px rgba(58,42,22,0.2);
+    }
+    nav ul.open{transform:translateX(0);}
+    .nav-toggle{display:block;}
+    .origen .grid, .agenda .wrap, .contacto .grid{grid-template-columns:1fr; gap:2.4em;}
+    .talleres-grid{grid-template-columns:1fr;}
+    section{padding:4.5em 0;}
+    .leaf-motif{max-width:220px; margin:0 auto;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--verde-oscuro); outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand"><img src="img/logo.jpg" alt="Sipiata Echeri"> Sipiata Echeri</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  <ul id="navMenu">
+    <li><a href="#origen">El nombre</a></li>
+    <li><a href="#talleres">Lo que vivirás</a></li>
+    <li><a href="#agenda">Encuentros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow" style="color:var(--verde-lima);">Centro holístico de salud integral · Zamora de Hidalgo, Michoacán</p>
+    <h1 style="margin-top:0.5em;">Sipiata Echeri,<br><em>medicina de la tierra.</em></h1>
+    <p class="tag">Te encontramos a través de la convivencia.</p>
+    <p class="lead">Vivirás talleres y experiencias de crecimiento y sanación, preservando la sabiduría ancestral del temazcal y la herbolaria, en comunidad.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/523511270189?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Sipiata%20Echeri" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      <a class="btn btn-ghost on-dark" href="#talleres">Conoce los encuentros</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Entra al útero de la tierra ↓</div>
+</header>
+
+<!-- ============ WAVE + LOGO REVEAL ============ -->
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+  <path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="#F8F3E8"/>
+</svg>
+
+<div class="reveal">
+  <img src="img/logo.jpg" alt="Sipiata Echeri — Medicina de la tierra. Centro holístico de salud integral.">
+  <p>Talleres · Encuentros · Sanación en comunidad</p>
+</div>
+
+<!-- ============ EL NOMBRE / ORIGEN ============ -->
+<section class="origen" id="origen">
+  <div class="wrap grid">
+    <svg class="leaf-motif" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="160" cy="160" r="150" fill="#F8F3E8" stroke="rgba(58,42,22,0.13)"/>
+      <path d="M160 20 C220 60 260 110 260 160 C260 110 220 70 160 20Z" fill="#0B5C34"/>
+      <path d="M160 20 C110 60 60 110 60 165 C100 120 140 90 160 20Z" fill="#8FBB55"/>
+      <path d="M60 165 C100 200 220 200 260 165 C260 230 210 280 160 290 C110 280 60 230 60 165Z" fill="#A06F16"/>
+      <path d="M70 220 C110 250 210 250 250 220 C235 260 200 285 160 290 C120 285 85 260 70 220Z" fill="#5C3D12"/>
+    </svg>
+    <div class="origen-copy">
+      <p class="eyebrow">El nombre</p>
+      <h2 style="margin-top:0.6em; font-size:clamp(1.8rem,3vw,2.4rem);">Una raíz que viene de la tierra michoacana.</h2>
+      <p style="margin-top:1.4em;"><strong>Sipiata Echeri</strong> nace del territorio y de la lengua p'urhépecha que aún respira en Michoacán. Es un nombre que apunta hacia el suelo, hacia el barro y la piedra que nos sostienen — la misma tierra de la que se levanta cada temazcal.</p>
+      <p>Somos un centro holístico de salud integral: un espacio donde te encuentras contigo a través de la convivencia y el aprendizaje en comunidad. No enseñamos desde el atril, caminamos junto a ti — entre vapor, hierbas y fuego.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LO QUE VIVIRÁS ============ -->
+<section id="talleres">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Lo que vivirás</p>
+      <h2>Talleres y experiencias para sanar, aprender y volver a la tierra.</h2>
+    </div>
+    <div class="talleres-grid">
+      <div class="taller">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21c4-3 6-6.5 6-10a6 6 0 1 0-12 0c0 3.5 2 7 6 10Z"/><path d="M9 13c1 1 4 1 5 0"/></svg>
+        <h3>Temazcal</h3>
+        <p>Ceremonias de baño de vapor ancestral guiadas con respeto y cuidado — purificación física, emocional y espiritual en el vientre de la tierra.</p>
+      </div>
+      <div class="taller">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3c2 4 2 7 0 11M12 3c-2 4-2 7 0 11M12 14v7M7 21h10"/></svg>
+        <h3>Herbolaria</h3>
+        <p>Saberes de plantas medicinales transmitidos de generación en generación: cómo identificarlas, prepararlas y vivir en relación con ellas.</p>
+      </div>
+      <div class="taller">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="7" cy="8" r="2.4"/><circle cx="17" cy="8" r="2.4"/><path d="M3 19c0-3 2-5 4-5s4 2 4 5M13 19c0-3 2-5 4-5s4 2 4 5"/></svg>
+        <h3>Círculos de sanación</h3>
+        <p>Encuentros de palabra, escucha y acompañamiento emocional, sostenidos en comunidad y en silencio compartido.</p>
+      </div>
+      <div class="taller">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 19V6l8-3 8 3v13M4 19h16M9 19v-6h6v6"/></svg>
+        <h3>Talleres de crecimiento</h3>
+        <p>Espacios prácticos para el cuerpo, la mente y el espíritu: movimiento, respiración y herramientas para la vida diaria.</p>
+      </div>
+      <div class="taller">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21V8l8-5 8 5v13M9 21v-7h6v7"/></svg>
+        <h3>Encuentros comunitarios</h3>
+        <p>Convivencia, fogatas y alimento compartido — el aprendizaje que solo sucede cuando se está junto a otros.</p>
+      </div>
+      <div class="taller">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3.2"/></svg>
+        <h3>Sabiduría ancestral</h3>
+        <p>Custodiamos prácticas que vienen de tiempo atrás, para que sigan vivas — no como museo, sino como camino cotidiano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CITA / FILOSOFÍA ============ -->
+<div class="cita">
+  <div class="wrap">
+    <blockquote>«La tierra no se explica, se habita. En el calor del temazcal y en el aroma de las hierbas, recordamos algo que el cuerpo nunca olvidó.»</blockquote>
+    <cite>Sipiata Echeri</cite>
+  </div>
+</div>
+
+<!-- ============ AGENDA ============ -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Próximos encuentros</p>
+      <h2>Agenda viva — confirma siempre en nuestras redes.</h2>
+    </div>
+    <div class="agenda">
+      <div class="agenda-aside">
+        <p>Nuestras fechas se confirman y actualizan primero en Facebook e Instagram. Escríbenos por WhatsApp si quieres que te avisemos directo.</p>
+        <a class="btn btn-ghost" style="margin-top:1.8em;" href="https://www.instagram.com/sipiataecheri/" target="_blank" rel="noopener">Ver fechas en Instagram</a>
+      </div>
+      <div>
+        <div class="agenda-card">
+          <p class="fecha">Próximamente</p>
+          <h3>Temazcal de luna llena</h3>
+          <p>Ceremonia de purificación abierta a la comunidad. Cupo limitado, se pide preparación previa.</p>
+        </div>
+        <div class="agenda-card">
+          <p class="fecha">Próximamente</p>
+          <h3>Taller de herbolaria básica</h3>
+          <p>Introducción a las plantas medicinales de la región y sus usos cotidianos.</p>
+        </div>
+        <div class="agenda-card">
+          <p class="fecha">Próximamente</p>
+          <h3>Círculo de palabra y sanación</h3>
+          <p>Un espacio mensual para compartir, escuchar y acompañarnos en comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANDA COMUNIDAD (foto real) ============ -->
+<div class="banda-comunidad">
+  <div class="cap">
+    <p class="eyebrow">Así se vive Sipiata Echeri</p>
+    <h3>Encuentros, convivencia y aprendizaje compartido.</h3>
+  </div>
+</div>
+
+<!-- ============ CONTACTO ============ -->
+<section class="contacto" id="contacto">
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow">Contacto</p>
+      <h2>Escríbenos, te esperamos en la tierra.</h2>
+      <p class="contacto-lead">Cuéntanos qué buscas — sanación, aprendizaje o comunidad — y te orientamos sobre el próximo encuentro disponible.</p>
+
+      <div class="info-list">
+        <a href="https://wa.me/523511270189" target="_blank" rel="noopener">
+          <span class="label">WhatsApp</span><span class="val">+52 351 127 0189</span>
+        </a>
+        <a href="mailto:sipiataecheri@gmail.com">
+          <span class="label">Correo</span><span class="val">sipiataecheri@gmail.com</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61581286856962" target="_blank" rel="noopener">
+          <span class="label">Facebook</span><span class="val">Sipiata Echeri</span>
+        </a>
+        <a href="https://www.instagram.com/sipiataecheri/" target="_blank" rel="noopener">
+          <span class="label">Instagram</span><span class="val">@sipiataecheri</span>
+        </a>
+        <div class="static">
+          <span class="label">Ubicación</span><span class="val">Zamora de Hidalgo, Michoacán, México</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ph-map"><!-- PH: mapa o foto del lugar -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+      <small style="font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase;">Mapa / foto del lugar — pendiente</small>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">
+      <img src="img/logo.jpg" alt="Sipiata Echeri">
+      <p>© 2026 Sipiata Echeri — Medicina de la Tierra. Zamora de Hidalgo, Michoacán.</p>
+    </div>
+    <div class="social-row">
+      <a href="https://www.facebook.com/profile.php?id=61581286856962" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.17 8.44 9.94v-7.03H7.9v-2.91h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.78-1.63 1.58v1.9h2.78l-.45 2.91h-2.33V22c4.78-.77 8.44-4.94 8.44-9.94Z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/sipiataecheri/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.textContent = isOpen ? '✕' : '☰';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = '☰';
+  }));
+</script>
+
+</body>
+</html>
